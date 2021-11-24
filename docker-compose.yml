@@ -1,0 +1,8 @@
+version: '3'
+services:
+  cppdev:
+    build: .
+    volumes:
+      - .:/cppdev
+    tty:
+      true
