@@ -18,5 +18,15 @@ RUN apt install -y curl && \
     apt update && apt install -y bazel
 
 # install google test
-# RUN wget https://github.com/google/googletest/archive/refs/tags/release-1.11.0.zip && \
-#     unzip release-1.11.0.zip
+RUN apt-get install -y wget && \
+    cd /tmp && \
+    wget https://github.com/google/googletest/archive/refs/tags/release-1.11.0.tar.gz && \
+    tar zxvf release-1.11.0.tar.gz && \
+    mkdir -p /usr/local/src && \
+    sudo mv googletest-release-1.11.0 /usr/local/src && \
+    cd /usr/local/src/googletest-release-1.11.0 && \
+    mkdir build && \
+    cd build && \
+    cmake .. && \
+    make && \
+    sudo make install
