@@ -1,13 +1,12 @@
 #include <iostream>
+#include <memory>
+#include <cassert>
 
 template <class T>
 class Stack {
 private:
-    struct Element {
-        Element* next;
-        T value;
-    };
-    Element* top;
+    struct Element;
+    std::shared_ptr<Element> top;
     int64_t length;
 
 public:
@@ -16,43 +15,43 @@ public:
 
     void push(T value);
     T pop();
-    int64_t getLength();
-    T topElement();
+};
+
+template <class T>
+struct Stack<T>::Element {
+    std::shared_ptr<Element> next;
+    T value;
 };
 
 template <class T>
 void Stack<T>::push(T value) {
-    // TODO: use smart pointer
-    Element* new_element = new Element{top, value};
-    top = new_element;
+    top = std::make_shared<Element>(Element{top, value});
     length++;
     return;
-}
+};
 
 template <class T>
 T Stack<T>::pop() {
-    // TODO: use smart pointer, don't use delete
-    if (top == nullptr) return NULL;
-    Element* top_next = top->next;
-    T retval = top->value;
-    delete top;
-    top = top_next;
-    length--;
-    return retval;
-}
-
-template <class T>
-int64_t Stack<T>::getLength() {
-    return length;
-}
+    if (length == 0) { // empty
+        return 0;
+    }
+    else {
+        T top_val = top->value;
+        top = std::move(top->next);
+        length--;
+        return top_val;
+    }
+};
 
 int main() {
     Stack<int64_t> stack{};
     stack.push(1);
     stack.push(2);
     stack.push(3);
-    std::cout << "stack pop = " << stack.pop() << std::endl;
-    std::cout << "stack pop = " << stack.pop() << std::endl;
-    std::cout << "stack pop = " << stack.pop() << std::endl;
+    assert(stack.pop() == 3);
+    assert(stack.pop() == 2);
+    assert(stack.pop() == 1);
+    assert(stack.pop() == 0);
+    std::cout << "ok" << std::endl;
     return 0;
 }
