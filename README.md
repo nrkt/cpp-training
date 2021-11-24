@@ -15,5 +15,5 @@ It implements stack using bazel, docker and google test.
 docker-compose up -d
 docker-compose exec cppdev bash
 cd cppdev
-g++ stack.cpp -o stack.o
+bazel run //cpp:stack
 ```
