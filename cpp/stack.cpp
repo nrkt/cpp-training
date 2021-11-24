@@ -1,6 +1,4 @@
-#include <iostream>
 #include <memory>
-#include <cassert>
 
 template <class T>
 class Stack {
@@ -59,46 +57,3 @@ T Stack<T>::getTop() {
         return top->value;
     }
 };
-
-// int main() {
-//     Stack<int64_t> stack_int{};
-//     stack_int.push(1);
-//     stack_int.push(2);
-//     stack_int.push(3);
-//     assert(stack_int.pop() == 3);
-//     assert(stack_int.pop() == 2);
-//     assert(stack_int.pop() == 1);
-//     assert(stack_int.pop() == 0);
-
-//     Stack<char> stack_char{};
-//     stack_char.push('1');
-//     stack_char.push('2');
-//     stack_char.push('3');
-//     assert(stack_char.pop() == '3');
-//     assert(stack_char.pop() == '2');
-//     assert(stack_char.pop() == '1');
-
-//     Stack<char*> stack_chars{};
-//     stack_chars.push("11");
-//     stack_chars.push("22");
-//     stack_chars.push("33");
-//     assert(stack_chars.pop() == "33");
-//     assert(stack_chars.pop() == "22");
-//     assert(stack_chars.pop() == "11");
-
-//     struct stack_elem {
-//         int64_t val;
-//     };
-    
-//     Stack<stack_elem> stack_struct{};
-//     stack_struct.push(stack_elem{1});
-//     stack_struct.push(stack_elem{2});
-//     stack_struct.push(stack_elem{3});
-//     assert(stack_struct.pop().val == 3);
-//     assert(stack_struct.pop().val == 2);
-//     assert(stack_struct.pop().val == 1);
-
-//     std::cout << "ok" << std::endl;
-
-//     return 0;
-// }
