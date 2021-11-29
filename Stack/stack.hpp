@@ -13,6 +13,7 @@ public:
 
     void push(T value);
     T pop();
+
     int64_t getLength();
     T getTop();
 };
