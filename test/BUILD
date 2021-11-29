@@ -1,10 +1,6 @@
 cc_test(
-    name = "test",
-    srcs = [
-        "stack_test.cpp",
-    ],
-    deps = [
-        "//cpp:stack",
-        "@gtest//:main"
-    ],
+    name = "Test",
+    srcs = glob(["**/*.cpp"]),
+    deps = ["//Stack:Stack",
+           "@googletest//:gtest_main"],
 )

@@ -1,5 +1,5 @@
-#include <gtest/gtest.h>
-#include "../cpp/stack.cpp"
+#include "gtest/gtest.h"
+#include "Stack/stack.hpp"
 
 TEST(StackTest, Int) {
     Stack<int64_t> stack{};

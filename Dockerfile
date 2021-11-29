@@ -17,16 +17,19 @@ RUN apt install -y curl && \
     echo "deb [arch=amd64] https://storage.googleapis.com/bazel-apt stable jdk1.8" | sudo tee /etc/apt/sources.list.d/bazel.list && \
     apt update && apt install -y bazel
 
+# # install git
+RUN sudo apt-get install -y git
+
 # install google test
-RUN apt-get install -y wget && \
-    cd /tmp && \
-    wget https://github.com/google/googletest/archive/refs/tags/release-1.11.0.tar.gz && \
-    tar zxvf release-1.11.0.tar.gz && \
-    mkdir -p /usr/local/src && \
-    sudo mv googletest-release-1.11.0 /usr/local/src && \
-    cd /usr/local/src/googletest-release-1.11.0 && \
-    mkdir build && \
-    cd build && \
-    cmake .. && \
-    make && \
-    sudo make install
+# RUN apt-get install -y wget && \
+#     cd /tmp && \
+#     wget https://github.com/google/googletest/archive/refs/tags/release-1.11.0.tar.gz && \
+#     tar zxvf release-1.11.0.tar.gz && \
+#     mkdir -p /usr/local/src && \
+#     sudo mv googletest-release-1.11.0 /usr/local/src && \
+#     cd /usr/local/src/googletest-release-1.11.0 && \
+#     mkdir build && \
+#     cd build && \
+#     cmake .. && \
+#     make && \
+#     sudo make install
