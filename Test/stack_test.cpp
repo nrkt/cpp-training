@@ -21,7 +21,7 @@ TEST(StackTest, Int) {
     EXPECT_EQ(stack.getLength(), 0);
     EXPECT_EQ(stack.pop(), 0);
     EXPECT_EQ(stack.getLength(), 0);
-}
+};
 
 TEST(StackTest, Char) {
     Stack<char> stack{};
@@ -43,7 +43,7 @@ TEST(StackTest, Char) {
     EXPECT_EQ(stack.getLength(), 0);
     EXPECT_EQ(stack.pop(), 0);
     EXPECT_EQ(stack.getLength(), 0);
-}
+};
 
 TEST(StackTest, String) {
     Stack<char*> stack{};
@@ -65,7 +65,7 @@ TEST(StackTest, String) {
     EXPECT_EQ(stack.getLength(), 0);
     EXPECT_EQ(stack.pop(), nullptr);
     EXPECT_EQ(stack.getLength(), 0);
-}
+};
 
 TEST(StackTest, Struct) {
     struct stack_elem {
@@ -90,4 +90,4 @@ TEST(StackTest, Struct) {
     EXPECT_EQ(stack.getLength(), 0);
     EXPECT_EQ(stack.pop().val, 0);
     EXPECT_EQ(stack.getLength(), 0);
-}
+};
